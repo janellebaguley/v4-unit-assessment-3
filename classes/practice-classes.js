@@ -15,6 +15,15 @@
 */
 
 //CODE HERE
+class Character {
+  constructor(name, type){
+    this.name = name;
+    this.type = type;
+  }
+  getInfo(){
+    return `This is a ${this.type} character named ${this.name}.`
+  }      
+}
 
 //////////////////PROBLEM 2////////////////////
 
@@ -32,14 +41,23 @@
   Call your new class NPC
 */
 
-//CODE HERE
+class NPC extends Character{
+  constructor(name, type, location, phrase){
+    super(name, type, location, phrase)
+    this.location = location;
+    this.phrase = phrase;
+  }
+  dialogue(){
+    return `${this.name}: ${this.phrase}`
+  }
+}
 
 /*
     Create an NPC named Ralph who is a human located in Niceland. His phrase should be `I'm gonna wreck it!`. 
     Store your new NPC in a variable called 'ralph'.
 */
 
-//CODE HERE
+let ralph = new NPC('Ralph', 'human', 'Niceland', `I'm gonna wreck it!`)
 
 /*
     Next you're going to create three variables to store information about Ralph.
@@ -48,7 +66,9 @@
     Third, make a variable named ralphsLocation whose value will be Ralph's location.
 */
 
-//CODE HERE
+let ralphsInfo = ralph.getInfo();
+let ralphsDialogue =  ralph.dialogue();
+// let ralphsLocation = ralph.location();
 
 //////////////////PROBLEM 3////////////////////
 
@@ -73,7 +93,18 @@
   Call your new class Player
 */
 
-//CODE HERE
+class Player extends Character{
+  // constructor(name, type, healthLevel, attackLevel){
+  //   super(name, type)
+  //   this.healthLevel = 0;
+  //   this.attackLevel = 0;
+  //  }
+  //  defend(){
+  //    this.attackLevel -= this.healthLevel;
+  //     return this;
+  }
+
+
 
 /*
     Next, we'll create two Players.
@@ -83,7 +114,8 @@
     and he's a firebender type with a 100 healthLevel and 0 attackLevel.
 */
 
-//CODE HERE
+const aang = new Player('Aang', 'airbender', 100, 100);
+let ozai = new Player('Ozai', 'firebender', 100, 0)
 
 /*
     Let's see how a fight between these two would go. 
@@ -92,7 +124,7 @@
     (You can console log battle to see what happens)
 */
 
-//CODE HERE
+// let battle = defend()
 
 //////////////////PROBLEM 4////////////////////
 
@@ -110,8 +142,20 @@
       - Example string: `Wonder Woman used flight!`
 */
 
-//CODE HERE
+class Hero extends Player{
+  constructor(name, type, attackLevel, healthLevel, superPowers){
+  super(name, type, attackLevel, healthLevel)
+  this.superPowers = [''];
+}
 
+addSuperPower(power){
+  this.power += this.superPowers;
+}
+useSuperPower(index){
+  this.index = 0;
+  return `${this.name} used ${this.power[0]}!`
+}
+}
 /*
   Create a hero named 'Fire Spitter' whose type is 'dragon'. 
   Fire Spitter's healthLevel and attackLevels should both be 5000. 
@@ -121,4 +165,6 @@
   Last, invoke useSuperPower passing in 0 for the index and store the result in a variable called fireSpitterAttack.
 */
 
-//CODE HERE
+const fireSpitter = new Hero('Fire Spitter', 'dragon', 5000, 5000)
+fireSpitter.addSuperPower ['spitting fire', 'flying', 'nesting']
+const fireSpitterAttack = useSuperPower[0]
