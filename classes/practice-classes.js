@@ -94,14 +94,15 @@ let ralphsDialogue =  ralph.dialogue();
 */
 
 class Player extends Character{
-  // constructor(name, type, healthLevel, attackLevel){
-  //   super(name, type)
-  //   this.healthLevel = 0;
-  //   this.attackLevel = 0;
-  //  }
-  //  defend(){
-  //    this.attackLevel -= this.healthLevel;
-  //     return this;
+  constructor(name, type, healthLevel, attackLevel){
+    super(name, type)
+    this.healthLevel = 0;
+    this.attackLevel = 0;
+   }
+   defend(amount){
+     this.amount = this.attackLevel - this.healthLevel;
+     return this;
+    }
   }
 
 
@@ -124,7 +125,7 @@ let ozai = new Player('Ozai', 'firebender', 100, 0)
     (You can console log battle to see what happens)
 */
 
-// let battle = defend()
+let battle = ozai.defend(aang.attackLevel)
 
 //////////////////PROBLEM 4////////////////////
 
@@ -154,7 +155,7 @@ addSuperPower(power){
 useSuperPower(index){
   this.index = 0;
   return `${this.name} used ${this.power[0]}!`
-}
+ }
 }
 /*
   Create a hero named 'Fire Spitter' whose type is 'dragon'. 
@@ -166,5 +167,5 @@ useSuperPower(index){
 */
 
 const fireSpitter = new Hero('Fire Spitter', 'dragon', 5000, 5000)
-fireSpitter.addSuperPower ['spitting fire', 'flying', 'nesting']
-const fireSpitterAttack = useSuperPower[0]
+fireSpitter.addSuperPower = ['spitting fire', 'flying', 'nesting']
+fireSpitter.useSuperPower[0]
