@@ -2,14 +2,17 @@ import React, {Component} from 'react';
 
 const BookList = (props) => {
     const{id, title, author, img} = props.books
-    const {data, i} = props
-    const lastIndex= data.length -1;
+    const {books, i, url} = props
+    const lastIndex= books.length -1;
     return(
         <div>
             <section>
-                {title} {author}
+                <img src={img}/>
+            <ul>{title} </ul>
+            <ul>{author}</ul>
             </section>
         </div>
     )
-}
+  }
+
 export default BookList;
