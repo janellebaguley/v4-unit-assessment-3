@@ -1,46 +1,40 @@
-import {Component} from 'react';
+import React, {Component} from 'react';
+import Booklist from './Components/BookList';
 import Shelf from './Components/Shelf';
-import BookList from './Components/BookList';
 import data from './data';
-import './App.css';
-import Header from './Components/Header';
 
 class App extends Component{
   constructor(){
     super()
     this.state ={
-    books: [],
-    shelf: [],
-    i: 0}
-   }
+      books: [],
+      shelf: []
+    }
   }
-  addToShelf(){
-    const Shelf = [Shelf, ...this.state.books]
-    this.setState({shelf: Shelf})
+  addToShelf() =>{
+    this.props.addShelf(this.state.shelf)
+    this.setState({shelf: []})
   }
-  handleChange(e){
-    this.setState({shelf: e.target.value})
-  }
-  handleSubmit(){
-    const {books, shelf} = this.state
-    this.setState({
-      books: [...books, shelf],
-      shelf: ''
-    })
-  }
+  clearShelf(){
 
-  render(){
-  return (
-    <div className="App">
-      <h1 className = 'Header'>bookist</h1>
-      <section className= 'container'>
-      <BookList books = {data}/>
-      </section>
-      <input value={this.state.books} onchange={(e) => this.handleChange(e)}/>
-      <button onClick={this.handleSubmit}>search</button>
-    </div>
-  );
   }
+  filterBooks(prop){
+    let books = this.state.books;
+    let filterBooks = [];
+    for(let i=0; i <books.length; i++){
+    if(books[i].hasOwnProperty(prop)){
+        filterBooks.push(books[i]);
+    }
 }
-
+this.setState({filterBooks: ''}); 
+}
+    render() {
+      
+      return(
+        <section>
+          <Boo kList books={this.state.books}/>
+        </section>
+      )
+ }
+}
 export default App;

@@ -103,8 +103,20 @@ class Player extends Character{
      this.amount = this.attackLevel - this.healthLevel;
      return this;
     }
-  }
+    attackStrength(){
 
+    }
+    remainingHealth(){
+
+    }
+    message(){
+      return (`${this.name} is still in the fight.`)
+
+    //   }else {
+    //   return (`${this.name} has been defeated!`)
+    // }
+   }
+  }
 
 
 /*
@@ -149,12 +161,13 @@ class Hero extends Player{
   this.superPowers = [''];
 }
 
-addSuperPower(power){
+addSuperPower(){
   this.power += this.superPowers;
+  return this;
 }
-useSuperPower(index){
-  this.index = 0;
-  return `${this.name} used ${this.power[0]}!`
+useSuperPower(){
+  this.index = [];
+  return (`${this.name} used ${this.power[0]}!`)
  }
 }
 /*
@@ -167,5 +180,5 @@ useSuperPower(index){
 */
 
 const fireSpitter = new Hero('Fire Spitter', 'dragon', 5000, 5000)
-fireSpitter.addSuperPower = ['spitting fire', 'flying', 'nesting']
-fireSpitter.useSuperPower[0]
+fireSpitter.addSuperPower('spitting fire', 'flying', 'nesting')
+fireSpitter.useSuperPower(0)

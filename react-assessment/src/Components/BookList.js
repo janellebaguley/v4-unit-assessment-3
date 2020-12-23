@@ -1,18 +1,22 @@
-import React, {Component} from 'react';
+
 
 const BookList = (props) => {
-    const{id, title, author, img} = props.books
-    const {books, i, url} = props
-    const lastIndex= books.length -1;
-    return(
-        <div>
-            <section>
-                <img src={img}/>
-            <ul>{title} </ul>
-            <ul>{author}</ul>
-            </section>
-        </div>
-    )
-  }
+    const {id, img, title, author} = props.books
+    const {data, i} = props
+    const lastI = data.length -1
 
-export default BookList;
+addToShelf() =>{
+        this.props.addShelf(this.state.shelf)
+        this.setState({shelf: []})
+}
+
+    return(
+        <section>   
+            <div> {img} </div>
+            <ul> {title} </ul>
+            <ul> {author} </ul>
+        </section>
+    )
+ }
+
+export default BookList;    
