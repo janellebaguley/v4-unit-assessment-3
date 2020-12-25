@@ -1,22 +1,25 @@
 
+import React, {Component} from 'react';
+import data from '../data';
 
-const BookList = (props) => {
-    const {id, img, title, author} = props.books
-    const {data, i} = props
-    const lastI = data.length -1
+const BookList =(props) =>{
+    const{id, img, title, author} = props.mappedBooks
+    const{data, i}= props
+    // let mappedBooks = {this.props.books}
 
-addToShelf() =>{
-        this.props.addShelf(this.state.shelf)
-        this.setState({shelf: []})
-}
-
+// }
+    
     return(
-        <section>   
-            <div> {img} </div>
-            <ul> {title} </ul>
-            <ul> {author} </ul>
-        </section>
-    )
- }
+        <section>
+        {this.props.shelf}
+        {this.props.mappedBooks.map((el, i) => (
+                    <data key={i} item={el} />
+                ))}
+                <img src={this.props.img}/>
+                <title src={this.props.title}/>
+                <author src={this.props.author}/>
+        </section>    
+        )
+    }
 
-export default BookList;    
+export default BookList;

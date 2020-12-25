@@ -2,9 +2,8 @@ import React, {Component} from 'react';
 
 function Header(){
     return(
-    <section>
-        Bookist
-    </section>
+        <section>
+        <h1>Bookist</h1>
+        </section>)}
 
-    )}
 export default Header;
