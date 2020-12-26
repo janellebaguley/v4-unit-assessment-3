@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import BookList from './Components/BookList';
+import './Components/BookList';
 import Shelf from './Components/Shelf';
 import Header from './Components/Header';
 import "./App.css";
@@ -7,8 +7,8 @@ import SearchBar from './SearchBar';
 import data from './data';
 
 class App extends Component{ 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       books: [],
@@ -21,8 +21,8 @@ class App extends Component{
       shelf: {...this.state.shelf}
     })
   }
-  clearShelf(){
-
+  clearShelf(value){
+    this.shelf= ['']
   }
   filterBooks(prop){
     let books = this.state.books;
@@ -44,7 +44,7 @@ class App extends Component{
       <div className="App">
         <Header/>
         <SearchBar books={this.filterBooks}/>
-        {/* <BookList {this.props.img}/> */}
+        {/* <BookList /> */}
         {/* <Shelf shelf={this.addToShelf}/> */}
       </div>
     )
